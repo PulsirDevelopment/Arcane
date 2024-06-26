@@ -1,5 +1,6 @@
 package net.pulsir.arcane.inventory.page;
 
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class InventoryPage {
@@ -8,6 +9,12 @@ public class InventoryPage {
 
     public InventoryPage(ItemStack[] items) {
         this.items = items;
+
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null) {
+                items[i] = new ItemStack(Material.AIR);
+            }
+        }
     }
 
     public ItemStack[] getItems() {

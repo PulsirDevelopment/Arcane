@@ -21,7 +21,8 @@ public class InventoryListener implements Listener {
                 event.setCancelled(inventory.isCancelled());
             }
 
-            if (event.getCurrentItem() != null && event.getCurrentItem().getItemMeta().getPersistentDataContainer().has(Arcane.getInstance().getActionButton())) {
+            if (event.getCurrentItem() != null && event.getCurrentItem().getItemMeta() != null && event.getCurrentItem().getItemMeta().displayName() != null
+                    && event.getCurrentItem().getItemMeta().getPersistentDataContainer().has(Arcane.getInstance().getActionButton())) {
                 ItemStack item = event.getCurrentItem();
                 String key = item.getItemMeta().getPersistentDataContainer().get(Arcane.getInstance().getActionButton(), PersistentDataType.STRING);
                 if (key == null) return;
